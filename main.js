@@ -1,5 +1,6 @@
 const {app,BrowserWindow,ipcMain} = require("electron")
 const path = require('path')
+const os = require('os')
 const createWindow = ()=>{
     const win = new BrowserWindow({
         width:800,
@@ -13,11 +14,14 @@ const createWindow = ()=>{
 
 app.whenReady().then(()=>{
     ipcMain.handle('ping', () => 'pong')
+    ipcMain.handle('cpuinfo',() =>{
+        let cpuinfo = os.cpus();
+        return cpuinfo;
+    })
     createWindow()
     app.on('activate', () => {
         if (BrowserWindow.getAllWindows().length === 0) createWindow()
       })
-    console.log(process.env.Abc_TOKEN)
 })
 
 app.on('window-all-closed',()=>{
