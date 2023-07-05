@@ -4,5 +4,6 @@ information.innerText = `本应用正在使用 Chrome (v${versions.chrome()}), N
 const func = async ()=>{
     const response = await window.versions.ping()
     console.log(response)
+
 }
 func()

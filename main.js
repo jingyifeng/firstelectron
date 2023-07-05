@@ -17,6 +17,7 @@ app.whenReady().then(()=>{
     app.on('activate', () => {
         if (BrowserWindow.getAllWindows().length === 0) createWindow()
       })
+    console.log(process.env.Abc_TOKEN)
 })
 
 app.on('window-all-closed',()=>{

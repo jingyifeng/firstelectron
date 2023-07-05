@@ -2,18 +2,24 @@ module.exports = {
   packagerConfig: {
     asar: true,
   },
+  publishers: [
+    {
+      name: '@electron-forge/publisher-github',
+      config: {
+        repository: {
+          owner: 'jingyifeng',
+          name: 'firstelectron'
+        },
+        prerelease: false,
+        draft: true
+      }
+    }
+  ],
   rebuildConfig: {},
   makers: [
     {
       name: '@electron-forge/maker-squirrel',
-      config: {
-        repository: {
-          owner: 'jingyifeng',
-          name: 'jingyifeng'
-        },
-        prerelease: false,
-        draft: true
-      },
+      config: {},
     },
     {
       name: '@electron-forge/maker-zip',
