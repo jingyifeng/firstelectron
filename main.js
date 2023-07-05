@@ -1,7 +1,7 @@
 const {app,BrowserWindow,ipcMain} = require("electron")
 const path = require('path')
 const os = require('os')
-require('update-electron-app')()
+
 const createWindow = ()=>{
     const win = new BrowserWindow({
         width:800,
@@ -20,6 +20,7 @@ app.whenReady().then(()=>{
         return cpuinfo;
     })
     createWindow()
+    require('update-electron-app')()
     app.on('activate', () => {
         if (BrowserWindow.getAllWindows().length === 0) createWindow()
       })
