@@ -6,7 +6,14 @@ module.exports = {
   makers: [
     {
       name: '@electron-forge/maker-squirrel',
-      config: {},
+      config: {
+        repository: {
+          owner: 'jingyifeng',
+          name: 'jingyifeng'
+        },
+        prerelease: false,
+        draft: true
+      },
     },
     {
       name: '@electron-forge/maker-zip',
