@@ -10,8 +10,8 @@ module.exports = {
           owner: 'jingyifeng',
           name: 'firstelectron'
         },
-        prerelease: false,
-        draft: true
+        prerelease: true,
+        draft: false
       }
     }
   ],
