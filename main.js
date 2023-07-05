@@ -19,6 +19,9 @@ app.whenReady().then(()=>{
         let cpuinfo = os.cpus();
         return cpuinfo;
     })
+    ipcMain.handle('getVer',()=>{
+        return app.getVersion()
+    })
     createWindow()
     require('update-electron-app')()
     app.on('activate', () => {

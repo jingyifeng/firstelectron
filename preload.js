@@ -1,4 +1,4 @@
-const { contextBridge,ipcRenderer } = require('electron')
+const {contextBridge,ipcRenderer } = require('electron')
 const sysenv = process.env
 contextBridge.exposeInMainWorld('versions', {
   node: () => process.versions.node,
@@ -8,12 +8,14 @@ contextBridge.exposeInMainWorld('versions', {
   // we can also expose variables, not just functions
 })
 
-
-window.addEventListener('DOMContentLoaded', () => {
+window.addEventListener('DOMContentLoaded', async () => {
+    
     const sysinfo = {
         'os':process.env.OS,
         'lang':process.env.LANG
     }
+    const getVer = await ipcRenderer.invoke('getVer')
+    document.getElementById('ver').innerText=`版本号：v${getVer}`
     document.getElementById("os").innerText= `系统：${sysinfo.os}`
     document.getElementById("lang").innerText= `语言：${sysinfo.lang}`
     setInterval(()=>{
